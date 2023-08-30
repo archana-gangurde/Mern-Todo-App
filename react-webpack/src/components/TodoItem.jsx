@@ -14,6 +14,7 @@ import React, {
   import { debounce } from 'lodash';
   import { TokenContext } from '../app';
 import Button from '../atom/Button/Button';
+import '../style/TodoItem.scss'
   
   export const TodoItem = ({ todo }) => {
     const [text, setText] = useState(todo.text);
@@ -54,41 +55,27 @@ import Button from '../atom/Button/Button';
     }, [text]);
   
     return (
-      <div
-        style={{
-          marginBottom: '6px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <input
-          checked={todo.completed}
-          type="checkbox"
-          style={{
-            marginRight: '5px',
-            height: '34px',
-            width: '34px',
-          }}
-          onChange={() =>
-            updateTodo({
-              ...todo,
-              completed: !todo.completed,
-            })
-          }
-        />
-  
-        <input
-          style={{
-            padding: '8px',
-            marginRight: '6px',
-          }}
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-  
-  <Button text="DELETE" type="submit" onClick={() => deleteTodo(todo)} /> 
-      </div>
+      <div className="todo-item">
+      <input
+        checked={todo.completed}
+        type="checkbox"
+        className="checkbox"
+        onChange={() =>
+          updateTodo({
+            ...todo,
+            completed: !todo.completed,
+          })
+        }
+      />
+
+      <input
+        className="text-input"
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+
+      <Button className="delete-btn" text="DELETE" type="submit" onClick={() => deleteTodo(todo)} /> 
+    </div>
     );
   };
