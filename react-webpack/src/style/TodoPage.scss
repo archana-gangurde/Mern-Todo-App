@@ -1,0 +1,61 @@
+$primary-color: #1E3D58; 
+$secondary-color: #FF6B6B; 
+
+body {
+    background: linear-gradient(to bottom, $secondary-color, $primary-color);
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-container {
+    background-color: rgba(255, 255, 255, 0.9); // Light background with transparency for modern touch
+    width: 80%;
+    max-width: 600px; // Adaptable width with a maximum constraint
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    transition: all 0.3s ease; // Smooth transition for any change
+
+    h1 {
+        color: $primary-color;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2em;
+    }
+
+    .loading-indicator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: $primary-color;
+    }
+
+    form {
+        background-color: $secondary-color;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+
+        input, button {
+            margin-top: 10px;
+        }
+    }
+
+    .todo-item {
+        border: 1px solid $primary-color;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+
+        &:hover {
+            background-color: rgba($primary-color, 0.1);
+        }
+    }
+}
